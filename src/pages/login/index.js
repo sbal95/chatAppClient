@@ -9,7 +9,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [users, setUsers] = useState([]);
   const fetchUserData = () => {
-    fetch("http://localhost:5000/api/users/get-all")
+    fetch("https://chat-app-server-fawn.vercel.app/api/users/get-all")
       .then((response) => {
         return response.json();
       })
@@ -34,7 +34,7 @@ const Login = () => {
         users.map((user) => {
           if (user.username === userName) {
             const userId = user._id;
-            fetch("http://localhost:5000/api/users/update-user", {
+            fetch("https://chat-app-server-fawn.vercel.app/api/users/update-user", {
               method: "PUT",
               body: JSON.stringify({
                 userId: userId,
@@ -51,7 +51,7 @@ const Login = () => {
         });
         navigate("/chat");
       } else {
-        fetch("http://localhost:5000/api/users/add-user", {
+        fetch("https://chat-app-server-fawn.vercel.app/api/users/add-user", {
           method: "POST",
           body: JSON.stringify({
             username: userName,

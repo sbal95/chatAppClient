@@ -9,7 +9,7 @@ const ChatSection = () => {
   const [messages, setMessages] = useState([]);
 
   const fetchMessage = () => {
-    fetch("http://localhost:5000/api/messages/get-all")
+    fetch("https://chat-app-server-fawn.vercel.app/api/messages/get-all")
       .then((response) => {
         return response.json();
       })
@@ -36,7 +36,7 @@ const ChatSection = () => {
   }
 
   const sendMessage = () => {
-    fetch("http://localhost:5000/api/messages/add-message", {
+    fetch("https://chat-app-server-fawn.vercel.app/api/messages/add-message", {
       method: "POST",
       body: JSON.stringify({
         to: messageTo,
